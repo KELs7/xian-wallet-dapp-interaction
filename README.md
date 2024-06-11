@@ -6,4 +6,5 @@
 git clone https://github.com/KELs7/xian-wallet-dapp-interaction.git
 cd xian-wallet-dapp-interaction
 npm install
+npm run dev
 ```
