@@ -7,7 +7,7 @@
 
   onMount(async()=>{
       XianWalletUtils.init();
-      balance = await XianWalletUtils.getBalance("currency");
+      balance = updateBalance();
   });
   
   const requestWalletInfo = async()=> {
@@ -17,7 +17,7 @@
   const updateBalance = async() => {
      balance = await XianWalletUtils.getBalance("currency");
   }
-
+  
 </script>
 
 <main>
