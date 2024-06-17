@@ -6,20 +6,19 @@
   let balance;
   let dappUtils;
 
-  onMount(async()=>{
-      dappUtils = new XianWalletUtils();
-      
-      dappUtils.init();
-
-     balance = updateBalance(); 
+  onMount(async ()=>{
+      XianWalletUtils.init();
+        
+      await requestWalletInfo();
+      await updateBalance(); 
   });
 
   const requestWalletInfo = async()=> {
-      walletInfo = await dappUtils.requestWalletInfo();
+      walletInfo = await XianWalletUtils.requestWalletInfo();
   }
 
   const updateBalance = async() => {
-     balance = await dappUtils.getBalance("currency");
+     balance = await XianWalletUtils.getBalance("currency");
   }
   
 </script>
