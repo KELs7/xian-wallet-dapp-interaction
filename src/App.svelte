@@ -1,21 +1,25 @@
 <script>
   import { onMount } from "svelte";
-  import { XianWalletUtils } from "./xian-dapp-utils";
+  import XianWalletUtils from "./xian-dapp-utils";
   
   let walletInfo;
   let balance;
+  let dappUtils;
 
   onMount(async()=>{
-      XianWalletUtils.init();
-      balance = updateBalance();
+      dappUtils = new XianWalletUtils();
+      
+      dappUtils.init();
+
+     balance = updateBalance(); 
   });
-  
+
   const requestWalletInfo = async()=> {
-      walletInfo = await XianWalletUtils.requestWalletInfo();
+      walletInfo = await dappUtils.requestWalletInfo();
   }
 
   const updateBalance = async() => {
-     balance = await XianWalletUtils.getBalance("currency");
+     balance = await dappUtils.getBalance("currency");
   }
   
 </script>
